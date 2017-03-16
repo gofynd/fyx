@@ -18,10 +18,10 @@ class ResponseHandler(object):
 
     def set_properties(self):
         for attr in self.response_attributes:
-            if attr in self.response:
-                self.response.__setattr__(attr, str(self.response[attr]))
+            if attr not in ['IsError']:
+                    self.response.__setattr__(attr, str(self.response[attr]))
             else:
-                self.response.__setattr__(attr, '')
+                self.response.__setattr__(attr, self.response[attr])
         return self
 
     def json(self):
