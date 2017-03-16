@@ -1,7 +1,8 @@
 Pilote
 ======
 
-pilote will solve your issues of integrating different delivery partneres to your project.
+pilote will solve your issues of integrating different delivery partneres to your project with one go.
+Does not it sound cool..!!
 
 Look how easy it is to use:
    To come
@@ -9,6 +10,8 @@ Look how easy it is to use:
 Features
 --------
 
+- One click installation
+- choose partners you want to integrate
 - Be awesome
 - Make things faster
 - Send things even faster
