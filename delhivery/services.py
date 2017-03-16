@@ -5,16 +5,17 @@ Date: 04/03/2017
 
 It contains all the core service methods required for the delhivery.
 """
-from . import EcommBase
-from hedwig.settings import ECOM_BASE_URL
-from constants import ECOM_PLACE_SHIPMENT, ECOM_CANCEL_SHIPMENT
-from helper import ECOMXMLParser
+
+from . import DelhiveryBase
+from constants import DELHIVERY_CREATE_PACKAGE, DELHIVERY_CANCEL_PACKAGE, DELHIVERY_CREATE_PICKUP, \
+    DELHIVERY_CREATE_PACKAGE_HEADERS, DELHIVERY_CANCEL_PACKAGE_HEADERS, DELHIVERY_BASE_URL, DELHIVERY_DEBUG_BASE_URL
+from helper import DelhiveryXMLHelper
 
 
-class CreatePackage(EcommBase):
+class CreatePackage(DelhiveryBase):
 
     """
-    Create the new shipment in Ecomm.
+    Create the new shipment in delhivery.
     """
     def __init__(self, user_profile):
         super(CreatePackage, self).__init__(user_profile)
@@ -27,10 +28,11 @@ class CreatePackage(EcommBase):
         :return:
         """
         self.prepared_data = data
-        self.url = ECOM_BASE_URL + ECOM_PLACE_SHIPMENT
-        self.prepared_data['username'] = self.profile.username
-        self.prepared_data['password'] = self.profile.password
+        self.url = DELHIVERY_BASE_URL + DELHIVERY_CREATE_PACKAGE.format(self.profile.api_token)
+        if self.profile.debug:
+            self.url = DELHIVERY_DEBUG_BASE_URL + DELHIVERY_CREATE_PACKAGE.format(self.profile.api_token)
         self.method = 'POST'
+        self.headers = DELHIVERY_CREATE_PACKAGE_HEADERS
         self.logger.info("Payload received for creating package\n{}".format(self.prepared_data))
 
     def _prepare_response(self):
@@ -38,7 +40,7 @@ class CreatePackage(EcommBase):
             self.response = self.response.json()
 
 
-class CancelShipment(EcommBase):
+class CancelShipment(DelhiveryBase):
     def __init__(self, user_profile):
         super(CancelShipment, self).__init__(user_profile)
 
@@ -50,8 +52,11 @@ class CancelShipment(EcommBase):
         :return:
         """
         self.prepared_data = data
-        self.url = ECOM_BASE_URL + ECOM_CANCEL_SHIPMENT
+        self.url = DELHIVERY_BASE_URL + DELHIVERY_CANCEL_PACKAGE
+        if self.profile.debug:
+            self.url = DELHIVERY_DEBUG_BASE_URL + DELHIVERY_CANCEL_PACKAGE
         self.method = 'POST'
+        self.headers['Authorization'] = DELHIVERY_CANCEL_PACKAGE_HEADERS['Authorization'].format(self.profile.api_token)
         self.logger.info("Payload received to cancel package\n{}".format(self.prepared_data))
 
     def _prepare_response(self):
@@ -61,10 +66,44 @@ class CancelShipment(EcommBase):
         :return: None
         """
         formatted_response = {}
-        if self.response and self.response.ok:
-            json_response = self.response.json()
-            formatted_response = json_response[0]
-        else:
-            formatted_response['status'] = 'False'
+        if self.response:
+            xml_response = self.response.content
+            formatted_response = DelhiveryXMLHelper(xml_response).parse()
+            if not formatted_response.get('status'):
+                formatted_response['status'] = 'False'
         self.response = formatted_response
 
+
+class CreatePickup(DelhiveryBase):
+    def __init__(self, user_profile):
+        super(CreatePickup, self).__init__(user_profile)
+
+    def _prepare_pre_request_data(self, data):
+
+        """
+        Prepare data for request.
+        TODO: Serialization to be added.
+        :return:
+        """
+        self.prepared_data = data
+        self.url = DELHIVERY_BASE_URL + DELHIVERY_CREATE_PICKUP
+        if self.profile.debug:
+            self.url = DELHIVERY_DEBUG_BASE_URL + DELHIVERY_CREATE_PICKUP
+        self.method = 'POST'
+        self.headers = DELHIVERY_CREATE_PACKAGE_HEADERS
+        self.logger.info("Payload received for creating pickup\n{}".format(self.prepared_data))
+
+    def _prepare_response(self):
+        """
+        This method is overridden.
+        Prepare response in json.
+        :return: None
+        """
+        if self.response.ok:
+            formatted_response = self.response.json()
+            formatted_response['success'] = True
+        else:
+            formatted_response = self.response.json()
+            formatted_response['success'] = False
+
+        self.response = formatted_response

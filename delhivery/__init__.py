@@ -3,16 +3,20 @@ File: Base class
 Author: Vineet Kumar Dubey <vineetdubey@gofynd.com>
 Date: 04/03/2017
 
-This file contains the Base class which will set the username and password for making the Ecomm API calls
+This file contains the Base class which will set the client name and api token for making the delhivery API calls
 """
 
 
 import logging
-from user_profile import UserProfile
 import requests
 
+from user_profile import UserProfile
+from constants import DELHIVERY_CREATE_PACKAGE_HEADERS
+from response_handler import ResponseHandler
 
-class EcommBase(object):
+
+class DelhiveryBase(object):
+
     def __init__(self, user_profile):
         self.prepared_data = None
         self.url = None
@@ -20,7 +24,7 @@ class EcommBase(object):
         self.headers = {}
         self.profile = UserProfile(**user_profile)
         self.logger = logging.getLogger(__name__)
-        self.response = {"success": False}
+        self.response = ResponseHandler({"success": False, "ok": False, "content": ''})
 
     def _prepare_pre_request_data(self, data):
         """

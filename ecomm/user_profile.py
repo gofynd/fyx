@@ -11,6 +11,7 @@ class UserProfile(object):
     """
     Set the user credentials for API requests.
     """
-    def __init__(self, username, password):
+    def __init__(self, username, password, debug=False):
         self.username = username
         self.password = password
+        self.debug = debug

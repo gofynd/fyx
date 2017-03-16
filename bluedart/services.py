@@ -6,9 +6,9 @@ Date: 10/02/2017
 It contains all the core service classes required for the bluedart.
 """
 
-from common.bluedart import BlueDart
-from common.bluedart.user_profile import UserProfile
-from hedwig.settings import BLUEDART_BASE_URL, PROD_ENV
+from bluedart import BlueDart
+from bluedart.user_profile import UserProfile
+from constants import BLUEDART_BASE_URL, BLUEDART_DEBUG_BASE_URL
 
 
 class CreateShipment(BlueDart):
@@ -18,13 +18,15 @@ class CreateShipment(BlueDart):
 
     def __init__(self, profile_creds):
         request_url = BLUEDART_BASE_URL + 'WayBill/WayBillGeneration.svc?wsdl'
+        if profile_creds.get('debug', False):
+            request_url = BLUEDART_DEBUG_BASE_URL + 'WayBill/WayBillGeneration.svc?wsdl'
         self.request = None
         self.profile = None
         self.consignee = None
         self.shipper = None
         self.services = None
         self.user_profile = UserProfile(**profile_creds)
-        super(CreateShipment, self).__init__(request_url, PROD_ENV)
+        super(CreateShipment, self).__init__(request_url)
 
     def _prepare_pre_request_data(self):
         """
@@ -58,7 +60,7 @@ class CreateShipment(BlueDart):
         return response
 
 
-class RegisterPickup(BlueDart):
+class CreatePickup(BlueDart):
     """
     This Class to register pickup request for bluedart.
     It extends the Parent class BlueDart.
@@ -66,11 +68,13 @@ class RegisterPickup(BlueDart):
 
     def __init__(self, profile_creds):
         request_url = BLUEDART_BASE_URL + "Pickup/PickupRegistrationService.svc?wsdl"
+        if profile_creds.get('debug', False):
+            request_url = BLUEDART_DEBUG_BASE_URL + "Pickup/PickupRegistrationService.svc?wsdl"
         self.Request = None
         self.data_request = None
         self.data_profile = None
         self.user_profile = UserProfile(**profile_creds)
-        super(RegisterPickup, self).__init__(request_url, PROD_ENV)
+        super(CreatePickup, self).__init__(request_url)
 
     def _prepare_pre_request_data(self):
         """
@@ -97,12 +101,14 @@ class CancelShipment(BlueDart):
 
     def __init__(self, profile_creds):
         request_url = BLUEDART_BASE_URL + "WayBill/WayBillGeneration.svc?wsdl"
+        if profile_creds.get('debug', False):
+            request_url = BLUEDART_DEBUG_BASE_URL + "WayBill/WayBillGeneration.svc?wsdl"
         self.Request = None
         self.request = None
         self.profile = None
         self.awb_no = ''
         self.user_profile = UserProfile(**profile_creds)
-        super(CancelShipment, self).__init__(request_url, PROD_ENV)
+        super(CancelShipment, self).__init__(request_url)
 
     def _prepare_pre_request_data(self):
         """

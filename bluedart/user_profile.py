@@ -12,7 +12,7 @@ class UserProfile(object):
     Set the user credentials for API requests.
     """
     def __init__(self, api_type, login_id, licence_key, area=None, customer_code=None, is_admin=None, password=None,
-                 version=None, tracking_license_key=None):
+                 version=None, tracking_license_key=None, debug=False):
         self.api_type = api_type
         self.login_id = login_id
         self.password = password
@@ -22,3 +22,4 @@ class UserProfile(object):
         self.license_key = licence_key
         self.version = version
         self.tracking_license_key = tracking_license_key
+        self.debug = debug

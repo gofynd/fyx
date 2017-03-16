@@ -8,8 +8,10 @@ This file contains the Base class which will set the username and password for m
 
 
 import logging
-from user_profile import UserProfile
 import requests
+
+from user_profile import UserProfile
+from response_handler import ResponseHandler
 
 
 class EcommBase(object):
@@ -20,7 +22,7 @@ class EcommBase(object):
         self.headers = {}
         self.profile = UserProfile(**user_profile)
         self.logger = logging.getLogger(__name__)
-        self.response = {"success": False}
+        self.response = ResponseHandler({"success": False, "ok": False, "content": ''})
 
     def _prepare_pre_request_data(self, data):
         """
