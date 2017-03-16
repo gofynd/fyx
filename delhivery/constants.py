@@ -14,8 +14,8 @@ DELHIVERY_CANCEL_PACKAGE_HEADERS = DELHIVERY_CREATE_PICKUP_HEADERS
 DELHIVERY_CANCEL_PACKAGE = "/api/p/edit"
 DELHIVERY_CREATE_PICKUP = "/fm/request/new/"
 TEST_CREDS = {
-    'client_name': "FYND - NDD",
-    'api_token': '174780ea32804e33bbc80f6aef5bf0d19b79ca25'
+    'client_name': "XXX - TEST",
+    'api_token': '98723ksdjwiou923709xns980932nsdfie0'
 }
 DELHIVERY_DEBUG_BASE_URL = "http://test.delhivery.com"
 DELHIVERY_BASE_URL = "https://track.delhivery.com"
