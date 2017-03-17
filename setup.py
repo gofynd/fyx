@@ -14,7 +14,7 @@ with open('README.rst', 'r') as f:
    LONG_DESCRIPTION = f.read()
 CLASSIFIERS = filter(None, map(str.strip,
 """
-Development Status :: 5 - Production/Stable
+Development Status :: 0.0.1 - Development/Stable
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
 License :: OSI Approved :: Academic Free License (AFL)
@@ -61,18 +61,6 @@ setup(
     license="MIT License",
     packages=['pilote', 'pilote.tests'],
     platforms=['any'],
-    classifiers = [
-        'Programming Language :: Python',
-        'Development Status :: Pre-Alpha',
-        'Natural Language :: English',
-        'Environment :: Web Environment',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
-        'Operating System :: OS Independent',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Software Development :: Libraries :: Application Frameworks',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        ],
     extras_require={
         'testing': ['pytest'],
     }
