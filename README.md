@@ -3,6 +3,7 @@
 ###### Something interesting coming up.
 
 Project codebase: <https://github.com/omprakash1989/pilote>
+
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
 
 ***
