@@ -9,6 +9,25 @@ import sandman
 import pytest
 
 here = os.path.abspath(os.path.dirname(__file__))
+LONG_DESCRIPTION = 'All Indian pilots are over here.'
+with open('README.rst', 'r') as f:
+   LONG_DESCRIPTION = f.read()
+CLASSIFIERS = filter(None, map(str.strip,
+"""
+Development Status :: 5 - Production/Stable
+Intended Audience :: Developers
+License :: OSI Approved :: MIT License
+License :: OSI Approved :: Academic Free License (AFL)
+Programming Language :: Python
+Programming Language :: Python :: 2
+Programming Language :: Python :: 2.5
+Programming Language :: Python :: 2.6
+Programming Language :: Python :: 2.7
+Programming Language :: Python :: Implementation :: CPython
+Programming Language :: Python :: Implementation :: PyPy
+Topic :: Software Development :: Libraries :: Python Modules
+""".splitlines()))
+
 
 def read(*filenames, **kwargs):
     encoding = kwargs.get('encoding', 'utf-8')
@@ -18,8 +37,6 @@ def read(*filenames, **kwargs):
         with io.open(filename, encoding=encoding) as f:
             buf.append(f.read())
     return sep.join(buf)
-
-long_description = read('README.txt', 'CHANGES.txt')
 
 
 class PyTest(TestCommand):
@@ -33,27 +50,20 @@ class PyTest(TestCommand):
         sys.exit(errcode)
 
 setup(
-    name='sandman',
-    version=sandman.__version__,
-    url='http://github.com/jeffknupp/sandman/',
-    license='Apache Software License',
-    author='Jeff Knupp',
-    tests_require=['pytest'],
-    install_requires=['Flask>=0.10.1',
-                    'Flask-SQLAlchemy>=1.0',
-                    'SQLAlchemy==0.8.2',
-                    ],
-    cmdclass={'test': PyTest},
-    author_email='jeff@jeffknupp.com',
-    description='Automated REST APIs for existing database-driven systems',
-    long_description=long_description,
-    packages=['sandman'],
-    include_package_data=True,
-    platforms='any',
-    test_suite='sandman.test.test_sandman',
+    name="pilote",
+    version='0.0.1',
+    description='',
+    long_description=LONG_DESCRIPTION,
+    classifiers=CLASSIFIERS,
+    author="Om Prakash",
+    author_email="omprakash@gofynd.com",
+    url="https://github.com/omprakash1989/pilote/",
+    license="MIT License",
+    packages=['pilote', 'pilote.tests'],
+    platforms=['any'],
     classifiers = [
         'Programming Language :: Python',
-        'Development Status :: 4 - Beta',
+        'Development Status :: Pre-Alpha',
         'Natural Language :: English',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
