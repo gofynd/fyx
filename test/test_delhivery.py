@@ -1,4 +1,4 @@
-from delhivery.services import CreatePackage, CreatePickup, CancelShipment
+from delhivery.services import CreateShipment, CreatePickup, CancelShipment
 from delhivery.constants import TEST_CREDS
 
 
@@ -7,7 +7,7 @@ def test_delhivery_create_package_success():
     TODO: Success case to be written with a dummy set of valid data.
     :return:
     """
-    create_package = CreatePackage(TEST_CREDS)
+    create_package = CreateShipment(TEST_CREDS)
     response = create_package.send_request({})
     return response
 
@@ -17,7 +17,7 @@ def test_delhivery_create_package_failure():
     failure case for delhivery create package.
     :return:
     """
-    create_package = CreatePackage(TEST_CREDS)
+    create_package = CreateShipment(TEST_CREDS)
     response = create_package.send_request({})
     return response
 

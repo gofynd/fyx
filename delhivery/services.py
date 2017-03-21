@@ -12,13 +12,13 @@ from constants import DELHIVERY_CREATE_PACKAGE, DELHIVERY_CANCEL_PACKAGE, DELHIV
 from helper import DelhiveryXMLHelper
 
 
-class CreatePackage(DelhiveryBase):
+class CreateShipment(DelhiveryBase):
 
     """
     Create the new shipment in delhivery.
     """
     def __init__(self, user_profile):
-        super(CreatePackage, self).__init__(user_profile)
+        super(CreateShipment, self).__init__(user_profile)
 
     def _prepare_pre_request_data(self, data):
 
