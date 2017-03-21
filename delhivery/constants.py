@@ -1,10 +1,11 @@
 """
-File: constants
-Author: Vineet Kumar Dubey <vineetdubey@gofynd.com>
-Date: 04/03/2017
+.. module:: Delhivery
+.. moduleauthor:: Vineet Kumar Dubey <vineetdubey@gofynd.com>
+.. note::
+   All constants required for Delhivery API are placed here.
 
-This file contains the constants needed for making Ecomm API calls
 """
+
 
 DELHIVERY_CREATE_PACKAGE = "/cmu/push/json/?token={}"  # .format(DELHIVERY_API_TOKEN)
 DELHIVERY_CREATE_PACKAGE_HEADERS = {"content-type": "application/x-www-form-urlencoded"}

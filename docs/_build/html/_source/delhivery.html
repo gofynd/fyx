@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>delhivery package &#8212; pilote 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="delhivery-package">
+<h1>delhivery package<a class="headerlink" href="#delhivery-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-delhivery.constants">
+<span id="delhivery-constants-module"></span><h2>delhivery.constants module<a class="headerlink" href="#module-delhivery.constants" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All constants required for Delhivery API are placed here.</p>
+</div>
+</div>
+<div class="section" id="module-delhivery.helper">
+<span id="delhivery-helper-module"></span><h2>delhivery.helper module<a class="headerlink" href="#module-delhivery.helper" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It contains XML helper parser methods required to parse the response sent by delhivery.</p>
+</div>
+<dl class="class">
+<dt id="delhivery.helper.DelhiveryXMLHelper">
+<em class="property">class </em><code class="descclassname">delhivery.helper.</code><code class="descname">DelhiveryXMLHelper</code><span class="sig-paren">(</span><em>xml_string</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.helper.DelhiveryXMLHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This is a helper class which parses the xml response send
+by the delhivery to JSON</p>
+<dl class="method">
+<dt id="delhivery.helper.DelhiveryXMLHelper.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.helper.DelhiveryXMLHelper.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method simply parses the initialized xml_string to
+JSON Response
+Args:</p>
+<blockquote>
+<div>None</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">JSON equivalent of the xml_string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-delhivery.response_handler">
+<span id="delhivery-response-handler-module"></span><h2>delhivery.response_handler module<a class="headerlink" href="#module-delhivery.response_handler" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This file parses the response for all Delhivery API call.</p>
+</div>
+<dl class="class">
+<dt id="delhivery.response_handler.ResponseHandler">
+<em class="property">class </em><code class="descclassname">delhivery.response_handler.</code><code class="descname">ResponseHandler</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.response_handler.ResponseHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This is a helper class which creates valid response for all
+Delhivery API calls</p>
+<dl class="method">
+<dt id="delhivery.response_handler.ResponseHandler.json">
+<code class="descname">json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.response_handler.ResponseHandler.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>It converts response to JSON
+Args:</p>
+<blockquote>
+<div>None</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">JSON response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="delhivery.response_handler.ResponseHandler.set_properties">
+<code class="descname">set_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.response_handler.ResponseHandler.set_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>It sets the properties for the response
+Args:</p>
+<blockquote>
+<div>None</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Formatted JSON equivalent</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-delhivery.services">
+<span id="delhivery-services-module"></span><h2>delhivery.services module<a class="headerlink" href="#module-delhivery.services" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It contains all the core service methods required for the delhivery.</p>
+</div>
+<dl class="class">
+<dt id="delhivery.services.CancelShipment">
+<em class="property">class </em><code class="descclassname">delhivery.services.</code><code class="descname">CancelShipment</code><span class="sig-paren">(</span><em>user_profile</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.services.CancelShipment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#delhivery.DelhiveryBase" title="delhivery.DelhiveryBase"><code class="xref py py-class docutils literal"><span class="pre">delhivery.DelhiveryBase</span></code></a></p>
+<p>Cancels the previously created shipment in delhivery.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="delhivery.services.CreatePackage">
+<em class="property">class </em><code class="descclassname">delhivery.services.</code><code class="descname">CreatePackage</code><span class="sig-paren">(</span><em>user_profile</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.services.CreatePackage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#delhivery.DelhiveryBase" title="delhivery.DelhiveryBase"><code class="xref py py-class docutils literal"><span class="pre">delhivery.DelhiveryBase</span></code></a></p>
+<p>Create the new shipment in delhivery.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="delhivery.services.CreatePickup">
+<em class="property">class </em><code class="descclassname">delhivery.services.</code><code class="descname">CreatePickup</code><span class="sig-paren">(</span><em>user_profile</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.services.CreatePickup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#delhivery.DelhiveryBase" title="delhivery.DelhiveryBase"><code class="xref py py-class docutils literal"><span class="pre">delhivery.DelhiveryBase</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-delhivery.user_profile">
+<span id="delhivery-user-profile-module"></span><h2>delhivery.user_profile module<a class="headerlink" href="#module-delhivery.user_profile" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><p>Date: 10/02/2017
+File: user_profile
+This file sets the user credentials  for Delhivery profile.</p>
+<dl class="class">
+<dt id="delhivery.user_profile.UserProfile">
+<em class="property">class </em><code class="descclassname">delhivery.user_profile.</code><code class="descname">UserProfile</code><span class="sig-paren">(</span><em>client_name</em>, <em>api_token</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.user_profile.UserProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Set the user credentials for API requests.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-delhivery">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-delhivery" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-Delhivery"></span><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This file contains the Base class which will set the client name and api token for making the delhivery API calls</p>
+</div>
+<dl class="class">
+<dt id="delhivery.DelhiveryBase">
+<em class="property">class </em><code class="descclassname">delhivery.</code><code class="descname">DelhiveryBase</code><span class="sig-paren">(</span><em>user_profile</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.DelhiveryBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class contains the abstract methods that
+are needed for preparing request and response for
+making calls Delhivery.</p>
+<dl class="method">
+<dt id="delhivery.DelhiveryBase.send_request">
+<code class="descname">send_request</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#delhivery.DelhiveryBase.send_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to send the final JSON response and to be called by subclass.
+It internally override the _send_request of subclass.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>data - It contains the payload needed for the API Call</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">delhivery package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-delhivery.constants">delhivery.constants module</a></li>
+<li><a class="reference internal" href="#module-delhivery.helper">delhivery.helper module</a></li>
+<li><a class="reference internal" href="#module-delhivery.response_handler">delhivery.response_handler module</a></li>
+<li><a class="reference internal" href="#module-delhivery.services">delhivery.services module</a></li>
+<li><a class="reference internal" href="#module-delhivery.user_profile">delhivery.user_profile module</a></li>
+<li><a class="reference internal" href="#module-delhivery">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/_source/delhivery.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, omprakash@gofynd.com.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/_source/delhivery.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
