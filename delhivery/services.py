@@ -1,9 +1,8 @@
 """
-File: services
-Author: Vineet Kumar Dubey <vineetdubey@gofynd.com>
-Date: 04/03/2017
-
-It contains all the core service methods required for the delhivery.
+.. module:: Delhivery
+.. moduleauthor:: Vineet Kumar Dubey <vineetdubey@gofynd.com>
+.. note::
+    It contains all the core service methods required for the delhivery.
 """
 
 from . import DelhiveryBase
@@ -17,16 +16,20 @@ class CreatePackage(DelhiveryBase):
     """
     Create the new shipment in delhivery.
     """
+
     def __init__(self, user_profile):
         super(CreatePackage, self).__init__(user_profile)
 
     def _prepare_pre_request_data(self, data):
 
-        """
-        Prepare data for request.
+        """Prepare data for request.
         TODO: Serialization to be added.
+        Args:
+            data - The data that will be prepared before sending it to Delhivery
         :return:
+            None
         """
+
         self.prepared_data = data
         self.url = DELHIVERY_BASE_URL + DELHIVERY_CREATE_PACKAGE.format(self.profile.api_token)
         if self.profile.debug:
@@ -36,11 +39,21 @@ class CreatePackage(DelhiveryBase):
         self.logger.info("Payload received for creating package\n{}".format(self.prepared_data))
 
     def _prepare_response(self):
+        """Prepare response that will be returned to caller.
+        Args:
+            None
+        :return:
+            None
+        """
+
         if self.response:
             self.response = self.response.json()
 
 
 class CancelShipment(DelhiveryBase):
+    """Cancels the previously created shipment in delhivery.
+    """
+
     def __init__(self, user_profile):
         super(CancelShipment, self).__init__(user_profile)
 
@@ -49,8 +62,12 @@ class CancelShipment(DelhiveryBase):
         """
         Prepare data for request.
         TODO: Serialization to be added.
+        Args:
+            data - The data that will be prepared before sending it to Delhivery
         :return:
+            None
         """
+
         self.prepared_data = data
         self.url = DELHIVERY_BASE_URL + DELHIVERY_CANCEL_PACKAGE
         if self.profile.debug:
@@ -63,8 +80,12 @@ class CancelShipment(DelhiveryBase):
         """
         This method is overridden.
         Prepare response in json.
-        :return: None
+        Args:
+            None
+        :return:
+            None
         """
+
         formatted_response = {}
         if self.response:
             xml_response = self.response.content
@@ -85,6 +106,7 @@ class CreatePickup(DelhiveryBase):
         TODO: Serialization to be added.
         :return:
         """
+
         self.prepared_data = data
         self.url = DELHIVERY_BASE_URL + DELHIVERY_CREATE_PICKUP
         if self.profile.debug:
@@ -97,8 +119,12 @@ class CreatePickup(DelhiveryBase):
         """
         This method is overridden.
         Prepare response in json.
-        :return: None
+        Args:
+            None
+        :return:
+            None
         """
+
         if self.response.ok:
             formatted_response = self.response.json()
             formatted_response['success'] = True
