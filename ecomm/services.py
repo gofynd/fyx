@@ -12,13 +12,13 @@ from constants import ECOM_PLACE_SHIPMENT, ECOM_CANCEL_SHIPMENT, ECOM_BASE_URL, 
 from helper import ECOMXMLParser
 
 
-class CreatePackage(EcommBase):
+class CreateShipment(EcommBase):
 
     """
     Create the new shipment in Ecomm.
     """
     def __init__(self, user_profile):
-        super(CreatePackage, self).__init__(user_profile)
+        super(CreateShipment, self).__init__(user_profile)
 
     def _prepare_pre_request_data(self, data):
 
