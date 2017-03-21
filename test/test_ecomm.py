@@ -1,4 +1,4 @@
-from ecomm.services import CreatePackage, CancelShipment
+from ecomm.services import CreateShipment, CancelShipment
 from ecomm.constants import TEST_CREDS
 
 
@@ -7,7 +7,7 @@ def test_ecomm_create_package_success():
     TODO: Success case to be written with a dummy set of valid data.
     :return:
     """
-    create_package = CreatePackage(TEST_CREDS)
+    create_package = CreateShipment(TEST_CREDS)
     response = create_package.send_request({})
     return response
 
@@ -17,7 +17,7 @@ def test_ecomm_create_package_failure():
     failure case for ecomm create package.
     :return:
     """
-    create_package = CreatePackage(TEST_CREDS)
+    create_package = CreateShipment(TEST_CREDS)
     response = create_package.send_request({})
     return response
 
