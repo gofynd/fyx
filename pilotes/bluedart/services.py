@@ -6,8 +6,8 @@ Date: 10/02/2017
 It contains all the core service classes required for the bluedart.
 """
 
-from bluedart import BlueDart
-from bluedart.user_profile import UserProfile
+from pilotes.bluedart import BlueDart
+from pilotes.bluedart.user_profile import UserProfile
 from constants import BLUEDART_BASE_URL, BLUEDART_DEBUG_BASE_URL
 
 
