@@ -7,7 +7,7 @@ It contains all the core service methods required for the delhivery.
 """
 import json
 
-from ecomm import EcommBase
+from pilotes.ecomm import EcommBase
 from constants import ECOM_PLACE_SHIPMENT, ECOM_CANCEL_SHIPMENT, ECOM_BASE_URL, ECOM_DEBUG_BASE_URL
 from helper import ECOMXMLParser
 

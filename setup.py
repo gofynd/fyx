@@ -2,11 +2,8 @@ from __future__ import print_function
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 import io
-import codecs
 import os
 import sys
-import sandman
-import pytest
 
 here = os.path.abspath(os.path.dirname(__file__))
 LONG_DESCRIPTION = 'All Indian pilots are over here.'
@@ -14,7 +11,7 @@ with open('README.rst', 'r') as f:
    LONG_DESCRIPTION = f.read()
 CLASSIFIERS = filter(None, map(str.strip,
 """
-Development Status :: 0.0.1 - Development/Stable
+Development Status :: 2 - Pre-Alpha
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
 License :: OSI Approved :: Academic Free License (AFL)
@@ -27,6 +24,8 @@ Programming Language :: Python :: Implementation :: CPython
 Programming Language :: Python :: Implementation :: PyPy
 Topic :: Software Development :: Libraries :: Python Modules
 """.splitlines()))
+
+EXCLUDES = ['contrib', 'docs', 'tests', 'htmlcov', 'docs', '.cache']
 
 
 def read(*filenames, **kwargs):
@@ -46,12 +45,14 @@ class PyTest(TestCommand):
         self.test_suite = True
 
     def run_tests(self):
+        import pytest
         errcode = pytest.main(self.test_args)
         sys.exit(errcode)
 
 setup(
     name="pilote",
-    version='0.0.1',
+    include_package_data=True,
+    version='0.0.7',
     description='',
     long_description=LONG_DESCRIPTION,
     classifiers=CLASSIFIERS,
@@ -59,9 +60,34 @@ setup(
     author_email="omprakash@gofynd.com",
     url="https://github.com/omprakash1989/pilote/",
     license="MIT License",
-    packages=['pilote', 'pilote.tests'],
     platforms=['any'],
     extras_require={
-        'testing': ['pytest'],
-    }
+        'dev': ['check-manifest'],
+        'test': ['coverage'],
+    },
+    # What does your project relate to?
+    keywords='Pilote',
+    tests_require=['pytest'],
+    setup_requires=['pytest-runner'],
+
+    packages=find_packages(exclude=EXCLUDES),
+
+    # If there are data files included in your packages that need to be
+    # installed, specify them here.  If using Python 2.6 or less, then these
+    # have to be included in MANIFEST.in as well.
+    package_data={
+        'pilote': ['pilote.dat'],
+    },
+
+    install_requires=['coverage', 'lxml', 'zeep', 'requests'],
+
+    # Although 'package_data' is the preferred approach, in some case you may
+    # need to place data files outside of your packages. See:
+    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files # noqa
+    # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
+    data_files=[('pilote_data', ['data/data_file'])],
+
+    # To provide executable scripts, use entry points in preference to the
+    # "scripts" keyword. Entry points provide cross-platform support and allow
+    # pip to create the appropriate form of executable for the target platform.
 )

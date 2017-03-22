@@ -1,7 +1,7 @@
 import datetime
 
-from bluedart.services import CreateShipment, CancelShipment, CreatePickup
-from bluedart.constants import TEST_CREDS
+from pilotes.bluedart.services import CreateShipment, CancelShipment, CreatePickup
+from pilotes.bluedart.constants import TEST_CREDS
 import random
 
 
