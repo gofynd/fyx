@@ -1,5 +1,5 @@
-from ecomm.services import CreateShipment, CancelShipment
-from ecomm.constants import TEST_CREDS
+from pilotes.ecomm.services import CreateShipment, CancelShipment
+from pilotes.ecomm.constants import TEST_CREDS
 
 
 def test_ecomm_create_package_success():

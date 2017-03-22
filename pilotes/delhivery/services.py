@@ -5,7 +5,7 @@
     It contains all the core service methods required for the delhivery.
 """
 
-from . import DelhiveryBase
+from pilotes.delhivery import DelhiveryBase
 from constants import DELHIVERY_CREATE_PACKAGE, DELHIVERY_CANCEL_PACKAGE, DELHIVERY_CREATE_PICKUP, \
     DELHIVERY_CREATE_PACKAGE_HEADERS, DELHIVERY_CANCEL_PACKAGE_HEADERS, DELHIVERY_BASE_URL, DELHIVERY_DEBUG_BASE_URL
 from helper import DelhiveryXMLHelper
