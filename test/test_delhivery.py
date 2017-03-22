@@ -1,5 +1,5 @@
-from delhivery.services import CreateShipment, CreatePickup, CancelShipment
-from delhivery.constants import TEST_CREDS
+from pilotes.delhivery.services import CreateShipment, CreatePickup, CancelShipment
+from pilotes.delhivery.constants import TEST_CREDS
 
 
 def test_delhivery_create_package_success():
