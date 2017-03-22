@@ -66,7 +66,7 @@ setup(
         'test': ['coverage'],
     },
     # What does your project relate to?
-    keywords='Pilote',
+    keywords='Integrate Delivery Partners like bluedart, delhivery, ecomm, fedex etc.',
     tests_require=['pytest'],
     setup_requires=['pytest-runner'],
 
