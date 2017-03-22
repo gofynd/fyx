@@ -66,7 +66,8 @@ Usage
 =====
 ``# Import the service you want to use.``
 
-``# from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup``::
+``# from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup``
+::
     from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
 
         def test_ecomm_create_package_success():
