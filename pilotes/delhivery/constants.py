@@ -16,7 +16,8 @@ DELHIVERY_CANCEL_PACKAGE = "/api/p/edit"
 DELHIVERY_CREATE_PICKUP = "/fm/request/new/"
 TEST_CREDS = {
     'client_name': "XXX - TEST",
-    'api_token': '98723ksdjwiou923709xns980932nsdfie0'
+    'api_token': '98723ksdjwiou923709xns980932nsdfie0',
+    'debug': True
 }
 DELHIVERY_DEBUG_BASE_URL = "http://test.delhivery.com"
 DELHIVERY_BASE_URL = "https://track.delhivery.com"

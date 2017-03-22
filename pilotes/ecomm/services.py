@@ -19,6 +19,7 @@ class CreateShipment(EcommBase):
     """
     def __init__(self, user_profile):
         super(CreateShipment, self).__init__(user_profile)
+        self.prepared_data = dict()
 
     def _prepare_pre_request_data(self, data):
 
