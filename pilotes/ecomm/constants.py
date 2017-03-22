@@ -8,9 +8,9 @@ This file contains the constants needed for making Ecomm API calls
 
 ECOM_PLACE_SHIPMENT = "/apiv2/manifest_awb/"
 ECOM_CANCEL_SHIPMENT = "/apiv2/cancel_awb/"
-# Ecomm
 ECOM_DEBUG_BASE_URL = "http://ecomm.prtouch.com"
 ECOM_BASE_URL = "http://api.ecomexpress.in"
+ECOM_FETCH_AWBS = "/apiv2/fetch_awb/"
 TEST_CREDS = {
     "username": 'ecomexpress',
     "password": 'K782&%#jkhas',
