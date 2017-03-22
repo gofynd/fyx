@@ -60,15 +60,13 @@ TODO
 Installations
 =============
 
-``
-pip install pilote
-``
+``pip install pilote``
 
 Usage
 =====
 .. code::
-    # Import the service you want to use.
-    # from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
+    ``# Import the service you want to use.``
+    ``# from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup``
     from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
 
         def test_ecomm_create_package_success():
