@@ -8,7 +8,8 @@ It contains all the core service methods required for the delhivery.
 import json
 
 from pilotes.ecomm import EcommBase
-from constants import ECOM_PLACE_SHIPMENT, ECOM_CANCEL_SHIPMENT, ECOM_BASE_URL, ECOM_DEBUG_BASE_URL, ECOM_FETCH_AWBS
+from constants import ECOM_PLACE_SHIPMENT, ECOM_CANCEL_SHIPMENT, ECOM_BASE_URL, ECOM_DEBUG_BASE_URL, \
+    ECOM_FETCH_AWBS, AWB_COUNT_FROM_CREATE_SHIPMENT
 
 
 class CreateShipment(EcommBase):
@@ -17,6 +18,7 @@ class CreateShipment(EcommBase):
     Create the new shipment in Ecomm.
     """
     def __init__(self, user_profile):
+        self.user_profile = user_profile
         super(CreateShipment, self).__init__(user_profile)
         self.prepared_data = dict()
 
@@ -27,13 +29,16 @@ class CreateShipment(EcommBase):
         TODO: Serialization to be added.
         :return:
         """
-
         self.url = ECOM_BASE_URL + ECOM_PLACE_SHIPMENT
         if self.profile.debug:
             self.url = ECOM_DEBUG_BASE_URL + ECOM_PLACE_SHIPMENT
+        create_awb = CreateAWB(self.user_profile, data['awb_type'])
+        awb_data = create_awb.send_request(AWB_COUNT_FROM_CREATE_SHIPMENT)
+        self.prepared_data = dict()
         self.prepared_data['username'] = self.profile.username
         self.prepared_data['password'] = self.profile.password
-
+        if isinstance(awb_data.get('awb'), list):
+            data['AWB_NUMBER'] = awb_data['awb'][0]
         self.prepared_data["json_input"] = json.dumps([data])
         self.method = 'POST'
         self.logger.info("Payload received for creating package\n{}".format(self.prepared_data))
@@ -91,12 +96,12 @@ class CancelShipment(EcommBase):
 
 class CreateAWB(EcommBase):
     # Two allowed values for AWB Type are COD and PPD
-    def __init__(self, user_profile, awb_type='COD'):
+    def __init__(self, user_profile, awb_type):
         self.awb_type = awb_type
         self.prepared_data = dict()
         super(CreateAWB, self).__init__(user_profile)
 
-    def _prepare_pre_request_data(self, awbs):
+    def _prepare_pre_request_data(self, count):
 
         """
         Prepare data for request.
@@ -105,7 +110,8 @@ class CreateAWB(EcommBase):
         """
         self.prepared_data['username'] = self.profile.username
         self.prepared_data['password'] = self.profile.password
-        self.prepared_data['count'] = 1
+        self.prepared_data['count'] = count
+        self.prepared_data['type'] = self.awb_type
         self.url = ECOM_BASE_URL + ECOM_FETCH_AWBS
         if self.profile.debug:
             self.url = ECOM_DEBUG_BASE_URL + ECOM_FETCH_AWBS
