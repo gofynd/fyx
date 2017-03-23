@@ -53,8 +53,9 @@ class CreateShipment(EcommBase):
 
 class CancelShipment(EcommBase):
     def __init__(self, user_profile):
-        self.prepared_data = dict()
         super(CancelShipment, self).__init__(user_profile)
+        self.prepared_data = dict()
+
 
     def _prepare_pre_request_data(self, awbs):
 
@@ -97,9 +98,9 @@ class CancelShipment(EcommBase):
 class CreateAWB(EcommBase):
     # Two allowed values for AWB Type are COD and PPD
     def __init__(self, user_profile, awb_type):
+        super(CreateAWB, self).__init__(user_profile)
         self.awb_type = awb_type
         self.prepared_data = dict()
-        super(CreateAWB, self).__init__(user_profile)
 
     def _prepare_pre_request_data(self, count):
 
