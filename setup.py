@@ -52,7 +52,7 @@ class PyTest(TestCommand):
 setup(
     name="pilote",
     include_package_data=True,
-    version='0.0.7',
+    version='0.0.8',
     description='',
     long_description=LONG_DESCRIPTION,
     classifiers=CLASSIFIERS,
@@ -66,7 +66,7 @@ setup(
         'test': ['coverage'],
     },
     # What does your project relate to?
-    keywords='Pilote',
+    keywords='Integrate Delivery Partners like bluedart, delhivery, ecomm, fedex etc.',
     tests_require=['pytest'],
     setup_requires=['pytest-runner'],
 

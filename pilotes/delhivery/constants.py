@@ -14,9 +14,13 @@ DELHIVERY_CREATE_PICKUP_HEADERS = {'Content-Type': 'application/json',
 DELHIVERY_CANCEL_PACKAGE_HEADERS = DELHIVERY_CREATE_PICKUP_HEADERS
 DELHIVERY_CANCEL_PACKAGE = "/api/p/edit"
 DELHIVERY_CREATE_PICKUP = "/fm/request/new/"
+DELHIVERY_FETCH_BULK_AWB = "/waybill/api/bulk/json/?cl={0}&action=fetch&count={1}&token={2}"
+AWB_COUNT_FROM_CREATE_SHIPMENT = 1
 TEST_CREDS = {
     'client_name': "XXX - TEST",
-    'api_token': '98723ksdjwiou923709xns980932nsdfie0'
+    'api_token': '98723ksdjwiou923709xns980932nsdfie0',
+    'debug': True
 }
 DELHIVERY_DEBUG_BASE_URL = "http://test.delhivery.com"
 DELHIVERY_BASE_URL = "https://track.delhivery.com"
+DELHIVERY_DATA_FORMAT = "json"

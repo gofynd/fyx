@@ -16,7 +16,7 @@ from response_handler import ResponseHandler
 
 class EcommBase(object):
     def __init__(self, user_profile):
-        self.prepared_data = None
+        self.prepared_data = dict()
         self.url = None
         self.method = 'GET'
         self.headers = {}
