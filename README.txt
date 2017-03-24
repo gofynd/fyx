@@ -115,7 +115,7 @@ Usage
 
         def test_ecomm_create_package_success():
 
-            TEST_CREDS = TEST_CREDS = {
+            TEST_CREDS = {
                 "username": 'testusername',
                 "password": 'testpass',
                 "debug": True
