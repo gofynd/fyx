@@ -1,16 +1,25 @@
-Pilote <French for 'Pilot' (noun). Meaning - test (a scheme, project, etc.) before introducing it more widely >
+Pilote 
 ======
+< French for 'Pilot' (noun). Meaning - test (a scheme, project, etc.) before introducing it more widely >
 
-Prior to Pilote , Initially it would have taken something around 2 weeks for a single integration. 
-Now it can be done in less than a minute.
+
+Delivery Partner integration is a very important step in building an ecommerce portal.
+We realised the importance of the same and tried creating a layer which would involve less time and resource
 
 Pilote was build to solve the following issues:
+
 - Indigenous Delivery Partner integration 
 - Lack of python based sdk's for most of the Delivery Partners
 - Reduce the time taken for such integrations
 
+Prior to Pilote , Initially it would have taken something around 2 weeks for a single integration. 
+Now it can be done in less than a minute.
+
+
+
 
 Currently we have integrated the following delivery partners:
+
 - Blue Dart
 - Delhivery
 - Ecom Express
