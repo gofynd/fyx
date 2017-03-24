@@ -13,7 +13,7 @@ ECOM_BASE_URL = "http://api.ecomexpress.in"
 ECOM_FETCH_AWBS = "/apiv2/fetch_awb/"
 AWB_COUNT_FROM_CREATE_SHIPMENT = 1
 TEST_CREDS = {
-    "username": 'ECOMM USERNAME',
-    "password": 'ECOMM PASSWORD',
+    "username": 'ecomexpress',
+    "password": 'K782&%#jkhas',
     "debug": True
 }
