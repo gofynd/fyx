@@ -57,20 +57,16 @@ class CancelShipment(EcommBase):
         self.prepared_data = dict()
 
 
-    def _prepare_pre_request_data(self, awbs):
+    def _prepare_pre_request_data(self, data):
 
         """
         Prepare data for request.
         TODO: Serialization to be added.
         :return:
         """
-        if isinstance(awbs, list):
-            self.prepared_data["awbs"] = ",".join(awbs)
-        elif isinstance(awbs, str):
-            self.prepared_data["awbs"] = awbs
-        elif isinstance(awbs, int):
-            self.prepared_data["awbs"] = str(awbs)
-
+        self.prepared_data["awbs"] = str(data['waybill'])
+        self.prepared_data['username'] = self.profile.username
+        self.prepared_data['password'] = self.profile.password
         self.url = ECOM_BASE_URL + ECOM_CANCEL_SHIPMENT
         if self.profile.debug:
             self.url = ECOM_DEBUG_BASE_URL + ECOM_CANCEL_SHIPMENT
