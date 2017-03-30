@@ -3,7 +3,7 @@ Pilote
 < French for 'Pilot' (noun). Meaning - test (a scheme, project, etc.) before introducing it more widely >
 
 
-Current status, version 0.7.0, pre-alpha release
+Current status, version 0.9.0, pre-alpha release
 ------------------------------------------------
 
 This project is under development and at a very pre mature stage.
