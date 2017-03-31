@@ -1,5 +1,10 @@
 Pilote
 ======
+.. image:: https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master
+   :alt: build status
+   :target: https://travis-ci.org/omprakash1989/pilote
+
+
 < French for 'Pilot' (noun). Meaning - test (a scheme, project, etc.) before introducing it more widely >
 
 
