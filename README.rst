@@ -19,7 +19,7 @@ partners to make your work easier.
 Details
 -------
 
-Project codebase: <https://github.com/omprakash1989/pilote>
+Project codebase: <https://github.com/gofynd/pilote>
 
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
 
@@ -84,8 +84,8 @@ Install pilote by running:
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/omprakash1989/pilote/issues
-- Source Code: http://github.com/omprakash1989/pilote
+- Issue Tracker: https://github.com/gofynd/pilote/issues
+- Source Code: http://github.com/gofynd/pilote
 
 Support
 -------
