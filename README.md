@@ -1,5 +1,5 @@
-Pilote
-======
+Fyx
+===
 .. image:: https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master
    :alt: build status
    :target: https://travis-ci.org/omprakash1989/pilote
