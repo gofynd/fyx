@@ -1,9 +1,6 @@
 Fyx
 ===
-.. image:: https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master
-   :alt: build status
-   :target: https://travis-ci.org/omprakash1989/pilote
-
+[![Build Status](https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master)](https://travis-ci.org/omprakash1989/pilote)
 
 
 Current status, version 0.9.0, pre-alpha release
