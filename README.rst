@@ -108,9 +108,10 @@ The project is licensed under the MIT License.
 
 How to use
 ==========
-```
-# Import the service you want to use.
-# from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
+```python
+
+#Import the service you want to use.
+#from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
 from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
 
     def test_ecomm_create_package_success():
@@ -128,4 +129,5 @@ from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
         create_package = CreateShipment(TEST_CREDS)
         response = create_package.send_request(test_data)
         return response
+
 ```
