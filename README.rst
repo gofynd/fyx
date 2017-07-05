@@ -1,13 +1,9 @@
-===
-Fyx
-===
-
+Pilote
+======
 .. image:: https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master
    :alt: build status
    :target: https://travis-ci.org/omprakash1989/pilote
 
-
-< French for 'Pilot' (noun). Meaning - test (a scheme, project, etc.) before introducing it more widely >
 
 
 Current status, version 0.9.0, pre-alpha release
@@ -25,6 +21,9 @@ partners to make your work easier.
 
 Details
 -------
+
+Project codebase: <https://github.com/gofynd/fyx>
+
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
 
 
@@ -86,8 +85,8 @@ Install pilote by running:
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/gofynd/pilote/issues
-- Source Code: http://github.com/gofynd/pilote
+- Issue Tracker: https://github.com/gofynd/fyx/issues
+- Source Code: http://github.com/gofynd/fyx
 
 Support
 -------
@@ -107,25 +106,26 @@ License
 The project is licensed under the MIT License.
 
 
-Usage
-=====
-.. code::
-    # Import the service you want to use.
-    # from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
-    from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
+How to use
+==========
+```
+# Import the service you want to use.
+# from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
+from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
 
-        def test_ecomm_create_package_success():
+    def test_ecomm_create_package_success():
 
-            TEST_CREDS = {
-                "username": 'testusername',
-                "password": 'testpass',
-                "debug": True
-            }
+        TEST_CREDS = {
+            "username": 'testusername',
+            "password": 'testpass',
+            "debug": True
+        }
 
-            # Test data set for sending request with params as key and param value as value.
-            # Follow the documentation for dummy data.
-            test_data = {}
+        # Test data set for sending request with params as key and param value as value.
+        # Follow the documentation for dummy data.
+        test_data = {}
 
-            create_package = CreateShipment(TEST_CREDS)
-            response = create_package.send_request(test_data)
-            return response
+        create_package = CreateShipment(TEST_CREDS)
+        response = create_package.send_request(test_data)
+        return response
+```
