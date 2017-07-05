@@ -52,7 +52,7 @@ class PyTest(TestCommand):
 setup(
     name="pilote",
     include_package_data=True,
-    version='0.0.8',
+    version='0.0.9',
     description='',
     long_description=LONG_DESCRIPTION,
     classifiers=CLASSIFIERS,
