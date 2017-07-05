@@ -25,14 +25,7 @@ partners to make your work easier.
 
 Details
 -------
-
-=======
-Project codebase: <https://github.com/gofynd/fyx>
-=======
-
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
-
-
 
 
 Delivery Partner integration is a very important step in building an ecommerce portal.
