@@ -50,15 +50,15 @@ class PyTest(TestCommand):
         sys.exit(errcode)
 
 setup(
-    name="pilote",
+    name="fyx",
     include_package_data=True,
     version='0.0.9',
     description='',
     long_description=LONG_DESCRIPTION,
     classifiers=CLASSIFIERS,
-    author="Om Prakash",
+    author="Fynd",
     author_email="omprakash@gofynd.com",
-    url="https://github.com/omprakash1989/pilote/",
+    url="https://github.com/gofynd/fyx/",
     license="MIT License",
     platforms=['any'],
     extras_require={
