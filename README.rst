@@ -1,5 +1,5 @@
-======
-Pilote
+=======
+Fyx
 ======
 
 .. image:: https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master
@@ -14,7 +14,8 @@ Right now we're targeting to integrate more delivery partners to make your work 
 Details
 -------
 
-Project codebase: <https://github.com/omprakash1989/pilote>
+=======
+Project codebase: <https://github.com/gofynd/fyx>
 
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
 
@@ -46,6 +47,9 @@ Delhivery
 
 Ecomm
 
+=======
+- Issue Tracker: https://github.com/gofynd/fyx/issues
+- Source Code: http://github.com/gofynd/fyx
 
 TODO
 ----
