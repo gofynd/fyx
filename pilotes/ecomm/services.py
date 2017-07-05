@@ -56,7 +56,6 @@ class CancelShipment(EcommBase):
         super(CancelShipment, self).__init__(user_profile)
         self.prepared_data = dict()
 
-
     def _prepare_pre_request_data(self, data):
 
         """
