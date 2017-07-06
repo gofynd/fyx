@@ -1,6 +1,6 @@
 FyX
 ===
-[![Build Status](https://api.travis-ci.org/omprakash1989/pilote.svg?branch=master)](https://travis-ci.org/omprakash1989/pilote)
+[![Build Status](https://travis-ci.org/gofynd/fyx.svg?branch=master)](https://travis-ci.org/gofynd/fyx)
 
 
 Current status, version 0.9.0, pre-alpha release
