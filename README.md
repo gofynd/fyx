@@ -113,9 +113,9 @@ How to use
 ==========
 ```python
 
-#Import the service you want to use.
-#from pilotes.[pilote_name].services import CreateShipment, CancelShipment, CreatePickup
-from pilotes.ecomm.services import CreateShipment, CancelShipment, CreatePickup
+# Import the service you want to use.
+# from pilotes.[pilote_name].services import CreateShipment, CancelShipment
+from pilotes.ecomm.services import CreateShipment, CancelShipment
 
     def test_ecomm_create_package_success():
 
