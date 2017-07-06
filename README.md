@@ -20,7 +20,6 @@ Details
 -------
 
 Project codebase: <https://github.com/gofynd/fyx>
-
 Project Documentation: <http://pilote.readthedocs.io/en/latest>
 
 
