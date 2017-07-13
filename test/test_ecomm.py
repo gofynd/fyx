@@ -11,25 +11,25 @@ def test_ecomm_create_package_success():
     TODO: Success case to be written with a dummy set of valid data.
     :return:
     """
-    create_package = CreateShipment(TEST_CREDS)
     order_number = 'FY' + str(randint(10001, 9999999))
-    data = {"CONSIGNEE_ADDRESS2": "Police Station Ruksin", "CONSIGNEE_ADDRESS3": " ", "awb_type": "COD",
-            "RETURN_MOBILE": "9899856639", "CONSIGNEE_ADDRESS1": "First House., Police Station Ruksin",
-            "DESTINATION_CITY": "nadia", "PINCODE": "400072", "PICKUP_PINCODE": "400072", "PICKUP_MOBILE": "9899856639",
-            "RETURN_PINCODE": "400072",
-            "ORDER_NUMBER": order_number, "PICKUP_PHONE": "9899856639", "PICKUP_ADDRESS_LINE2": " ",
-            "PICKUP_ADDRESS_LINE1": "Khasra No.201/09 12/19/22, Min 26 Revenue estate, Bhora Kalan",
-            "COLLECTABLE_VALUE": 2049.0,
-            "CONSIGNEE": "Tawram Taga", "DECLARED_VALUE": 2049.0, "VOLUMETRIC_WEIGHT": "0.499",
-            "RETURN_ADDRESS_LINE1": "Khasra No.201/09 12/19/22, Min 26 Revenue estate, Bhora Kalan",
-            "RETURN_ADDRESS_LINE2": " ", "RETURN_NAME": "Bhora Kalan",
-            "ITEM_DESCRIPTION": "Blue and Black Running Shoes",
-            "ACTUAL_WEIGHT": "0.499", "HEIGHT": "0.0", "STATE": "west bengal", "PIECES": "1",
-            "PICKUP_NAME": "Bhora Kalan",
-            "BREADTH": "0.0", "PRODUCT": "COD", "RETURN_PHONE": "9899856639", "MOBILE": "9954986463",
-            "TELEPHONE": "9954986463", "LENGTH": "0.0"}
-    response = create_package.send_request(data)
+    data = {"consignee_address2": "65,Shakti Nagar,Near Bhole Kuti,Gupteshwar", "breadth": "0.00",
+            "consignee_address1": "C/o B.D.Mishra", "rto_name": "Nelamangala Taluk", "weight": "490.0",
+            "quantity": 1, "consignee_state": "madhya pradesh", "rto_pincode": "562123", "consignee_pincode": "400072",
+            "rto_state": "Maharashtra", "height": "0.00", "rto_country": "india", "pickup_mobile": "8147786893",
+            "pickup_pincode": "562123", "order_date": "2017-04-06T16:09:10.001000", "consignee_country": "India",
+            "pickup_name": "Nelamangala Taluk", "shipment_number": order_number, "volumetric": "0.0",
+            "return_name": "Fynd/Shopsense Retail Technologies", "product_cod_value": 374.0, "rto_phone": "8147786893",
+            "awb_num": "", "pickup_address1": "C/o Innovative Logistics, Survey No 72/5",
+            "pickup_address2": "Vajrahalli Village, Bhaktanpalya Road, Nelamangala", "consignee_phone": "9407267140",
+            "rto_address2": "Vajrahalli Village, Bhaktanpalya Road, Nelamangala", "consignee_mobile": "9407267140",
+            "pickup_phone": "8147786893", "shipment_type": "pre-paid",
+            "rto_address1": "C/o Innovative Logistics, Survey No 72/5", "length": "0.00", "warehouse_code": "FYND501",
+            "rto_mobile": "8147786893", "rto_city": "mumbai", "consignee_city": "jabalpur",
+            "product_name": "Black Slip-ons", "consignee_name": "Shikha Tripathi"}
+    create_package = CreateShipment(TEST_CREDS, data)
+    response = create_package.send_request()
     global global_awb_number
+
     global_awb_number = response['shipments'][0]['awb']
     assert response['shipments'][0]['success'] == True
 
@@ -39,8 +39,8 @@ def test_ecomm_create_package_failure():
     failure case for ecomm create package.
     :return:
     """
-    create_package = CreateShipment(TEST_CREDS)
-    response = create_package.send_request({})
+    create_package = CreateShipment(TEST_CREDS, {})
+    response = create_package.send_request()
     return response
 
 
@@ -49,8 +49,8 @@ def test_ecomm_cancel_package_success():
     TODO: Success case to be written with a dummy set of valid data.
     :return:
     """
-    cancel_package = CancelShipment(TEST_CREDS)
-    response = cancel_package.send_request({})
+    cancel_package = CancelShipment(TEST_CREDS, {})
+    response = cancel_package.send_request()
     return response
 
 
@@ -60,6 +60,6 @@ def test_ecomm_cancel_package_failure():
     :return:
     """
     data = {'waybill': global_awb_number}
-    cancel_package = CancelShipment(TEST_CREDS)
-    response = cancel_package.send_request(data)
+    cancel_package = CancelShipment(TEST_CREDS, data)
+    response = cancel_package.send_request()
     assert response['success'] == True

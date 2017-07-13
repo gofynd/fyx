@@ -13,8 +13,8 @@ ECOM_BASE_URL = "http://api.ecomexpress.in"
 ECOM_FETCH_AWBS = "/apiv2/fetch_awb/"
 AWB_COUNT_FROM_CREATE_SHIPMENT = 1
 TEST_CREDS = {
-    "username": 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    "password": 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    "username": 'ecomexpress',
+    "password": 'Ke$3c@4oT5m6h#$',
     "debug": True
 }
 SHIPMENT_TYPE = {"pre-paid": "PPD", "cod": "COD"}

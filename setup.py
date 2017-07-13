@@ -7,7 +7,7 @@ import sys
 
 here = os.path.abspath(os.path.dirname(__file__))
 LONG_DESCRIPTION = 'All Indian pilots are over here.'
-with open('README.rst', 'r') as f:
+with open('README.md', 'r') as f:
    LONG_DESCRIPTION = f.read()
 CLASSIFIERS = filter(None, map(str.strip,
 """

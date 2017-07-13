@@ -61,7 +61,7 @@ class CreateShipment(BlueDart):
             CustomerAddress2=self.data.get('pickup_address2', ""),
             CustomerAddress3=address3,
             CustomerCode=self.user_profile.customer_code,
-            OriginArea=self.data['origin_area_code,'],
+            OriginArea=self.data['origin_area_code'],
             # TODO - Need to move sender into user profile
             # Sender=self.user_profile.sender,
             CustomerPincode=self.data['pickup_pincode'],
@@ -87,7 +87,8 @@ class CreateShipment(BlueDart):
             CollectableAmount=cod_val,
             CreditReferenceNo=self.data['shipment_number'],
             DeclaredValue=self.data['product_value'],
-            InvoiceNo=self.data[''],
+            # need here a unique key must be added to docs
+            # InvoiceNo=self.data[''],
             PickupTime=self.data['pickup_time'],
             PieceCount=self.data['quantity'],
             # TODO - BLUEDART PRODUCT DETAILS NEEDED TO BE TAKEN AT THE TIME OF INITIALISATION. PLease CHECK OM
@@ -104,7 +105,6 @@ class CreateShipment(BlueDart):
         """
         Prepare pre request WSDL prefixes.
         """
-        self._create_request_payload()
         self.Request = self.client.get_element('ns2:WayBillGenerationRequest')
         self.Profile = self.client.get_element('ns4:UserProfile')
         self.Consignee = self.client.get_element("ns2:Consignee")
@@ -112,6 +112,7 @@ class CreateShipment(BlueDart):
         self.Services = self.client.get_element("ns2:Services")
         self.Commodity = self.client.get_element("ns2:CommodityDetail")
         self.dimension = self.client.get_element("ns2:Dimension")
+        self._create_request_payload()
         self.profile = self._set_profile_credentials(self.user_profile)
 
     def _send_request(self):
