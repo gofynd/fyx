@@ -17,3 +17,4 @@ TEST_CREDS = {
     "customer_code": "099960",
     "debug": True
 }
+SHIPMENT_TYPE = {"pre-paid": "Prepaid", "cod": "COD"}

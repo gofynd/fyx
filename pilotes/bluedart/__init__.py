@@ -33,6 +33,7 @@ class BlueDart(object):
         """
         This should be treated as a abstract method and to be over ridden by each subclass.
         Prepare the wsdl request prefixes.
+        :data - The incoming payload that will be converted into Bluedart's xml payload
         :return: None
         """
         pass
@@ -49,6 +50,7 @@ class BlueDart(object):
         """
         Used to send the final SOAP request and to be called by subclass.
         It internally override the _send_request of subclass.
+        :data - The incoming payload from the user
         :return: None
         """
         try:

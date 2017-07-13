@@ -129,8 +129,8 @@ from pilotes.ecomm.services import CreateShipment, CancelShipment
         # Follow the documentation for dummy data.
         test_data = {}
 
-        create_package = CreateShipment(TEST_CREDS)
-        response = create_package.send_request(test_data)
+        create_package = CreateShipment(TEST_CREDS, test_data)
+        response = create_package.send_request()
         return response
 
 ```

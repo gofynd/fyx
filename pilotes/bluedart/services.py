@@ -8,7 +8,7 @@ It contains all the core service classes required for the bluedart.
 
 from pilotes.bluedart import BlueDart
 from pilotes.bluedart.user_profile import UserProfile
-from constants import BLUEDART_BASE_URL, BLUEDART_DEBUG_BASE_URL
+from constants import BLUEDART_BASE_URL, BLUEDART_DEBUG_BASE_URL, SHIPMENT_TYPE
 
 
 class CreateShipment(BlueDart):
@@ -16,7 +16,7 @@ class CreateShipment(BlueDart):
     Create the new shipment in bluedart.
     """
 
-    def __init__(self, profile_creds):
+    def __init__(self, profile_creds, data):
         request_url = BLUEDART_BASE_URL + 'WayBill/WayBillGeneration.svc?wsdl'
         if profile_creds.get('debug', False):
             request_url = BLUEDART_DEBUG_BASE_URL + 'WayBill/WayBillGeneration.svc?wsdl'
@@ -25,14 +25,86 @@ class CreateShipment(BlueDart):
         self.consignee = None
         self.shipper = None
         self.services = None
+        self.data = data
         self.user_profile = UserProfile(**profile_creds)
-        super(CreateShipment, self).__init__(request_url)
+        super(CreateShipment, self).__init__(request_url, data)
+
+    def _create_request_payload(self):
+        # Finding AWB type
+        awb_type = "Prepaid"
+        if self.data["shipment_type"] == SHIPMENT_TYPE['cod']:
+            awb_type = "COD"
+
+        cod_val = self.data['product_cod_value'] if awb_type == SHIPMENT_TYPE['cod'] else 0
+        pickup_date = self.data['pickup_date']
+
+        # Consignee Details
+        # ToDO: Om PLease check on the bluedart address guidelines so we can add them on our side.
+        self.consignee = self.Consignee(
+            ConsigneeName=self.data['consignee_name'],
+            ConsigneeMobile=self.data['consignee_mobile'],
+            ConsigneeAddress1=self.data['consignee_address1'],
+            ConsigneeAddress2=self.data['consignee_city'],
+            ConsigneeAddress3=self.data['consignee_state'],
+            ConsigneePincode=self.data['consignee_pincode'],
+            ConsigneeTelephone=self.data.get('consignee_phone', "")
+        )
+
+        # Shipper Details.
+        address3 = '%s, %s' % (self.data['pickup_city'], self.data['pickup_state'])
+
+        # TODO - Check on validations for address length -- only for bluedart
+        self.shipper = self.Shipper(
+            # TODO - Need to move customer_name into user profile
+            # CustomerName=self.user_profile.customer_name,
+            CustomerAddress1=self.data.get('pickup_address1', ""),
+            CustomerAddress2=self.data.get('pickup_address2', ""),
+            CustomerAddress3=address3,
+            CustomerCode=self.user_profile.customer_code,
+            OriginArea=self.data['origin_area_code,'],
+            # TODO - Need to move sender into user profile
+            # Sender=self.user_profile.sender,
+            CustomerPincode=self.data['pickup_pincode'],
+            CustomerMobile=self.data['pickup_phone'],
+            CustomerTelephone="",
+        )
+
+        commodity = self.Commodity(
+            CommodityDetail1=self.data['product_category'],
+            CommodityDetail2=self.data['product_name'],
+            CommodityDetail3=self.data['product_brand'],
+        )
+
+        # Shipping Item Details
+        dimensions = self.dimension(
+            Breadth=self.data['breadth'],
+            Height=self.data['height'],
+            Length=self.data['length'],
+            Count=self.data['quantity']
+        )
+        self.services = self.Services(
+            ActualWeight=self.data['weight'],
+            CollectableAmount=cod_val,
+            CreditReferenceNo=self.data['shipment_number'],
+            DeclaredValue=self.data['product_value'],
+            InvoiceNo=self.data[''],
+            PickupTime=self.data['pickup_time'],
+            PieceCount=self.data['quantity'],
+            # TODO - BLUEDART PRODUCT DETAILS NEEDED TO BE TAKEN AT THE TIME OF INITIALISATION. PLease CHECK OM
+            # ProductCode=BLUEDART_PRODUCT_DETAILS['apex'],
+            # ProductType=BLUEDART_PRODUCT_DETAILS['type'],
+            SubProductCode="C" if awb_type == SHIPMENT_TYPE['cod'] else "P",
+            Commodity=commodity,
+            Dimensions=[dimensions],
+            PickupDate=pickup_date,
+            RegisterPickup=True
+        )
 
     def _prepare_pre_request_data(self):
         """
         Prepare pre request WSDL prefixes.
         """
-
+        self._create_request_payload()
         self.Request = self.client.get_element('ns2:WayBillGenerationRequest')
         self.Profile = self.client.get_element('ns4:UserProfile')
         self.Consignee = self.client.get_element("ns2:Consignee")

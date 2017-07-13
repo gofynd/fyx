@@ -36,7 +36,7 @@ class DelhiveryBase(object):
         self.logger = logging.getLogger(__name__)
         self.response = ResponseHandler({"success": False, "ok": False, "content": ''})
 
-    def _prepare_pre_request_data(self, data):
+    def _prepare_pre_request_data(self):
         """This is abstract method and have to be over ridden in subclass.
         Inside subclass it will prepare the data for request.
 
@@ -57,18 +57,15 @@ class DelhiveryBase(object):
         """
         pass
 
-    def send_request(self, data):
+    def send_request(self):
         """
         Used to send the final JSON response and to be called by subclass.
         It internally override the _send_request of subclass.
 
-        Args:
-            data - It contains the payload needed for the API Call
-
         :return: Response
         """
         try:
-            self._prepare_pre_request_data(data)
+            self._prepare_pre_request_data()
             if self.method == 'GET':
                 self.response = requests.get(self.url)
             else:

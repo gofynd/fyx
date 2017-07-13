@@ -17,10 +17,11 @@ DELHIVERY_CREATE_PICKUP = "/fm/request/new/"
 DELHIVERY_FETCH_BULK_AWB = "/waybill/api/bulk/json/?cl={0}&action=fetch&count={1}&token={2}"
 AWB_COUNT_FROM_CREATE_SHIPMENT = 1
 TEST_CREDS = {
-    'client_name': "FYND - NDD",
-    'api_token': '174780ea32804e33bbc80f6aef5bf0d19b79ca25',
+    'client_name': "XXXX - XXX",
+    'api_token': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     'debug': True
 }
 DELHIVERY_DEBUG_BASE_URL = "http://test.delhivery.com"
 DELHIVERY_BASE_URL = "https://track.delhivery.com"
 DELHIVERY_DATA_FORMAT = "json"
+SHIPMENT_TYPE = {"pre-paid": "pre-paid", "cod": "cod"}

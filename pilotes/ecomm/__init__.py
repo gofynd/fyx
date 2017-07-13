@@ -24,7 +24,7 @@ class EcommBase(object):
         self.logger = logging.getLogger(__name__)
         self.response = ResponseHandler({"success": False, "ok": False, "content": ''})
 
-    def _prepare_pre_request_data(self, data):
+    def _prepare_pre_request_data(self):
         """
         This is abstract method and have to be over ridden in subclass.
         Inside subclass it will prepare the data for request.
@@ -40,14 +40,14 @@ class EcommBase(object):
         """
         pass
 
-    def send_request(self, data):
+    def send_request(self):
         """
         Used to send the final SOAP request and to be called by subclass.
         It internally override the _send_request of subclass.
         :return: Response
         """
         try:
-            self._prepare_pre_request_data(data)
+            self._prepare_pre_request_data()
             if self.method == 'GET':
                 self.response = requests.get(self.url)
             else:
