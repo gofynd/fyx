@@ -2,6 +2,15 @@ FyX
 ===
 [![Build Status](https://travis-ci.org/gofynd/fyx.svg?branch=master)](https://travis-ci.org/gofynd/fyx)
 
+<blockquote>
+<p>
+Fyx is an integration of multiple Delivery partners into a single project. It was created due to the problem faced by
+us while integrating various DPS. All the DPS have different payloads and different content types for example Bluedart
+uses XML, Delhivery uses JSON. So what is changed now with FYX you need not worry about the payload type and response
+format, you will send and receive JSON.
+</p>
+</blockquote>
+
 
 Current status, version 0.9.0, pre-alpha release
 ------------------------------------------------
