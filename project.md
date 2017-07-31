@@ -11,24 +11,28 @@ github_url: "https://github.com/gofynd/fyx"
 
 <p>
 
-Fyx is an integration of multiple Delivery partners into a single project. It was created due to the problem faced by
-us while integrating various DPS. All the DPS have different payloads and different content types for example Bluedart
-uses XML, Delhivery uses JSON. So what is changed now with FYX , you need not worry about the payload type and response
-format, you will send and receive JSON.
+As part of the Delta Ops team's role, data exchange between delivery partners and Fynd became extremely important to
+track orders. The team needed to make a system to get real time updates from delivery partners on where an order is
+at a certain time. But, the problem arises in the integration stage itself. Every delivery partner have different
+payloads and content types ie. Bluedart uses XML and Delhivery uses JSON.
 
 </p>
 
 <p>
-It reduces the time and effort in intgerating a new delivery partner. You will just need to integrate FYX instaead of
-many different delivery partners. And you are saved from the errors coming due to payload, content-type issues etc.
-It took us 2-3 weeks to onboard each delivery partner but with FYX it will not take more than Five minutes
+What has changed now with Fyx is that, you need not worry about the various content types of delivery partners.
+Instead you will send and receive only JSON. Fyx takes care of the conversion between the formats.
 </p>
 
 <p>
-Currently we have integrated three delivery partners Bluedart, Delhivery and Ecomm. We are open for suggestions and more
-integrations :)
+It reduces the time and effort in intgerating a new delivery partner. You will just need to integrate FYX instead
+of different delivery partners. Earlier it used to take about 2-3 weeks to onboard a delivery partner but now with
+FYX it happens in not more than Five minutes.
 </p>
 
+<p>
+Currently three delivery partners integerated using Fyx are operational with Fynd namely Bluedart, Delhivery and Ecomm.
+Fynd is looking forward to integrate many more delivery partners to expand our operational reach.
+</p>
 
 <p>
 You can view the code on <a href="https://github.com/gofynd/fyx">Github</a>. We’d love to hear your feedback.
