@@ -22,7 +22,7 @@ isodate==0.5.4
 itsdangerous==0.24
 Jinja2==2.9.5
 livereload==2.5.1
-lxml==3.7.3
+lxml==4.6.2
 MarkupSafe==1.0
 packaging==16.8
 pathtools==0.1.2
